@@ -10,7 +10,7 @@ List* initList(int num)
     return newNode;
 }
 
-List* addNode(List* head, int number)
+void addNode(List* head, int number)
 {
     List* newNode = initList(number);
     if (head ==NULL ) 
@@ -26,7 +26,17 @@ List* addNode(List* head, int number)
         }
         current->next = newNode; 
     }
+}
 
-    return newNode;
+void removeNode(List* head)
+{
+    if (head == NULL) 
+    {
+        std::cout << "List is empty. Nothing to remove." << std::endl;
+        return;
+    }
+    List* temp = head; 
+    head = head->next; 
+    delete temp;       
 }
 
