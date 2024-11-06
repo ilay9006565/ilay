@@ -10,8 +10,8 @@ typedef struct List
 
 List* initList(int num);
 
-List* addNode(List* head, int num);
+void addNode(List* head, int num);
 
-
+void removeNode(List* head);
 
 #endif /* LINKEDLIST_H */

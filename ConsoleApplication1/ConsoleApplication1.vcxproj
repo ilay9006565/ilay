@@ -22,7 +22,6 @@
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="part1.cpp" />
     <ClCompile Include="Part1Tester.cpp" />
-    <ClCompile Include="Part2Tester.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LinkedList.h" />
