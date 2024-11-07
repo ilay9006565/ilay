@@ -8,33 +8,28 @@ void push(Stack* s, unsigned int element)
     List* newNode = new List;
 
     newNode->number = element;
-    newNode->next = s->top;//מצביע על המשתנה העליון קח שהמשתנה הראשון "יורד" למטה
+    newNode->next = s->top;//מצביע על המשתנה העליון כך שהמשתנה הראשון "יורד" למטה
 
     s->top = newNode;
 }
 
 int pop(Stack* s)
 {
-    int  returnValue = 0;
-    List* tempo = s->top;
-    List* before = NULL;
-
-    while (tempo->next != NULL)//לולאה רצה עד כדי למצוא את העליון במחסנית והאחד שאחריו
-    {
-        before = tempo;
-        tempo = tempo->next;
+    if (s->top == NULL) {
+        return -1;  // Indicate the stack is empty
     }
 
-    returnValue = tempo->number;
-    delete(tempo);
-    before->next = NULL;
+    int returnValue = s->top->number;
+    List* temp = s->top;
+    s->top = s->top->next;
+    delete temp;
 
     return returnValue;
 }
 
 void initStack(Stack* s) 
 {
-    s->top = nullptr;
+    s->top = NULL;
 }
 
 void cleanStack(Stack* s) 
@@ -55,3 +50,4 @@ bool isEmpty(Stack* s)
     }
     return false;
 }
+
