@@ -16,6 +16,5 @@ void initStack(Stack* s);
 void cleanStack(Stack* s);
 
 bool isEmpty(Stack* s);
-bool isFull(Stack* s);
 
 #endif // STACK_H

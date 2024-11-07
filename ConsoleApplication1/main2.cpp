@@ -15,16 +15,43 @@ void push(Stack* s, unsigned int element)
 
 int pop(Stack* s)
 {
-    if (s->top == NULL) 
+    int  returnValue = 0;
+    List* tempo = s->top;
+    List* before = NULL;
+
+    while (tempo->next != NULL)//לולאה רצה עד כדי למצוא את העליון במחסנית והאחד שאחריו
     {
-        return -1;  
+        before = tempo;
+        tempo = tempo->next;
     }
 
-    int topValue = s->top->number;
+    returnValue = tempo->number;
+    delete(tempo);
+    before->next = NULL;
 
-    List* temp = s->top;
-    s->top = s->top->next;//הופך את האחד מתחת לעליון לעליון
-    delete temp;
+    return returnValue;
+}
 
-    return topValue;
+void initStack(Stack* s) 
+{
+    s->top = nullptr;
+}
+
+void cleanStack(Stack* s) 
+{
+    while (s->top != nullptr) 
+    {
+        List* temp = s->top;  
+        s->top = s->top->next;  
+        delete temp;
+    }
+}
+
+bool isEmpty(Stack* s)
+{
+    if (s->top == NULL)
+    {
+        return true;
+    }
+    return false;
 }
